@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Swashbuckle.Swagger.Annotations;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace webapitemplate.Controllers
 {
@@ -25,6 +25,8 @@ namespace webapitemplate.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(nameof(GetAll))]
+        [SwaggerResponse(200, null, typeof(WeatherForecast[]))]
         public IEnumerable<WeatherForecast> GetAll()
         {
             var rng = new Random();
@@ -37,9 +39,11 @@ namespace webapitemplate.Controllers
             .ToArray();
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
+        [SwaggerOperation(nameof(Get))]
         public string Get(int id)
         {
+            _logger.LogDebug(id.ToString());
             return "value";
         }
 
