@@ -55,7 +55,7 @@ public void ConfigureServices(IServiceCollection services)
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
 {
     var logEventLevel = LogEventLevel.Debug;
-    var applicationName = "DattingApp.API";
+    var applicationName = "SwaggerTemplateAPI";
     Log.Logger = new LoggerConfiguration()
                     .MinimumLevel.Is(logEventLevel)
                     .WriteTo.Console()
