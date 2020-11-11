@@ -1,6 +1,6 @@
 # Swagger Template WebApi
 
-Simple Swagger API template for .NET Framework 4.8 and .Net Core 3.1.8
+Simple Swagger API template for .NET Framework 4.8 and .Net 5
 
 ## .NET Framework 4.8
 
@@ -9,9 +9,9 @@ Simple Swagger API template for .NET Framework 4.8 and .Net Core 3.1.8
 Download or Clone the repo. Build the project and run it. Then, access the following URL: <https://localhost:44334/swagger/ui/index> and you will see the Swagger UI loading up:
 ![Swagger48](Swagger48.png)
 
-## .NET Core 3.1.8
+## .NET Core 5
 
-### Usage 3.1.8
+### Usage 5
 
 Download or Clone the repo. Build the project and run it. Then, access the following URL: <https://localhost:5001/swagger/api/index.html> and you will see the Swagger UI loading up:
 ![Swagger315](Swagger315.png)
@@ -22,7 +22,7 @@ Install the following packages:
     <PackageReference Include="Serilog" Version="2.10.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="5.6.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="3.4.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.6.0" />
