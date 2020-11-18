@@ -1,6 +1,6 @@
 # Swagger Template WebApi
 
-Simple Swagger API template for .NET Framework 4.8 and .Net 5
+Simple Swagger API template for .NET Framework 4.8 and .NET 5
 
 ## .NET Framework 4.8
 
