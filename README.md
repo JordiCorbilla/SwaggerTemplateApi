@@ -9,7 +9,7 @@ Simple Swagger API template for .NET Framework 4.8 and .NET 5
 Download or Clone the repo. Build the project and run it. Then, access the following URL: <https://localhost:44334/swagger/ui/index> and you will see the Swagger UI loading up:
 ![Swagger48](Swagger48.png)
 
-## .NET Core 5.0
+## .NET 5.0
 
 ### Usage 5.0
 
