@@ -26,14 +26,16 @@ namespace webapitemplate
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSwaggerGen(options => {
-                    options.SwaggerDoc("v1", new OpenApiInfo() { Title = "WebApi", Version = "v1" });
+            services.AddSwaggerGen(options =>
+                {
+                    options.SwaggerDoc("v1", new OpenApiInfo() {Title = "WebApi", Version = "v1"});
                 })
-                .AddMvc(options => {
+                .AddMvc(options =>
+                {
                     options.Filters.Add(new ExceptionFilter());
                     options.Filters.Add(new ProducesAttribute("application/json"));
                     options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor((_) => "The field is required.");
-                });			
+                });
             services.AddControllers().AddNewtonsoftJson(options =>
             {
                 options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.RoundtripKind;
@@ -48,29 +50,23 @@ namespace webapitemplate
             var logEventLevel = LogEventLevel.Debug;
             var applicationName = "WebApi";
             Log.Logger = new LoggerConfiguration()
-                            .MinimumLevel.Is(logEventLevel)
-                            .WriteTo.Console()
-                            .CreateLogger();
+                .MinimumLevel.Is(logEventLevel)
+                .WriteTo.Console()
+                .CreateLogger();
 
             Log.Information("Starting...");
 
             loggerFactory.AddSerilog();
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
-            app.UseSwagger(options =>
-            {
-                options.RouteTemplate = "swagger/api/{documentname}/swagger.json";
-            })
-            .UseSwaggerUI(options =>
-            {
-                options.SwaggerEndpoint("/swagger/api/v1/swagger.json", $"{applicationName} v1.0");
-                options.RoutePrefix = "swagger/api";
-            })
-            .UseMvc();
+            app.UseSwagger(options => { options.RouteTemplate = "swagger/api/{documentname}/swagger.json"; })
+                .UseSwaggerUI(options =>
+                {
+                    options.SwaggerEndpoint("/swagger/api/v1/swagger.json", $"{applicationName} v1.0");
+                    options.RoutePrefix = "swagger/api";
+                })
+                .UseMvc();
 
             app.UseHttpsRedirection();
 
@@ -78,10 +74,7 @@ namespace webapitemplate
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }
