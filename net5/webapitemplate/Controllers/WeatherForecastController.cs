@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -22,6 +24,15 @@ namespace webapitemplate.Controllers
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
+        }
+
+        [HttpPost("upload-file")]
+        public async Task Upload(IFormFile file)
+        {
+            var directory = @"C:\temp";
+            string filePath = Path.Combine(directory, file.FileName);
+            await using Stream fileStream = new FileStream(filePath, FileMode.Create);
+            await file.CopyToAsync(fileStream);
         }
 
         [HttpGet]
